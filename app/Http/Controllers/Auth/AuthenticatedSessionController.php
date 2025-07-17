@@ -29,10 +29,10 @@ class AuthenticatedSessionController extends Controller
 
         // ✅ Redirect sesuai role
         if (auth()->user()->role === 'admin') {
-            return redirect()->route('dashboard-admin');
+            return redirect()->route('home');
         }
 
-        return redirect()->route('user.fin.index'); // sesuaikan dengan route user
+        return redirect()->route('home');
     }
 
     /**

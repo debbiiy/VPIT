@@ -7,13 +7,12 @@ use App\Http\Controllers\VpitFinController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AdminVendorAssignmentController;
 
 // Default redirect
 Route::get('/', function () {
     return redirect('/login');
 });
-
-
 // ==========================
 // USER ROUTES
 // ==========================
@@ -45,7 +44,6 @@ Route::middleware(['auth'])->prefix('user')->name('user.')->group(function () {
         }
         $query->where('vendor', $vendorCode);
     }
-    
     if ($request->has('search') && $request->search !== '') {
         $keyword = $request->search;
         $query->where(function ($q) use ($keyword) {
@@ -89,7 +87,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::post('/upload', [VpitFinController::class, 'store'])->name('store');
         Route::post('/upload-invoice/{nobkt}', [VpitFinController::class, 'uploadInvoice'])->name('uploadInvoice');
     });
+    // Vendor assignment
+    Route::get('/assign-vendor', [AdminVendorAssignmentController::class, 'index'])->name('assign.vendor.index');
+    Route::post('/assign-vendor', [AdminVendorAssignmentController::class, 'assign'])->name('assign.vendor');
+    Route::post('/store-vendor', [AdminVendorAssignmentController::class, 'storeVendor'])->name('store.vendor');
 });
+
 
 
 // ==========================

@@ -16,7 +16,7 @@
 
             <div class="flex justify-between items-center mb-4">
                 <form method="GET" action="{{ route('admin.fin.index') }}" class="flex gap-2">
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search Nobkt..." class="px-3 py-2 border rounded-md focus:ring focus:ring-blue-200">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search Nobkt..." class="px-3 py-2 border-gray-300 rounded-md focus:ring focus:ring-blue-200">
                     <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
                 </form>
 
@@ -141,7 +141,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- End Modal -->
                                 </div>
                             </td>
                         </tr>

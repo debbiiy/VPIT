@@ -23,6 +23,7 @@
                     <img src="{{ asset('images/samuderaaa.png') }}" alt="Logo" class="h-12 w-auto object-contain" style="max-width: 48px;">
                     <span class="text-2xl font-bold text-gray-800 dark:text-white">VendorPortal</span>
                 </a>
+
                 <!-- Menu with underline active -->
                 <div class="flex gap-10">
                     <div class="flex flex-col items-center">
@@ -34,6 +35,7 @@
                             <div class="mt-1 w-6 h-1 bg-blue-600 rounded"></div>
                         @endif
                     </div>
+
                     @if(auth()->user()->role === 'admin')
                         <div class="flex flex-col items-center">
                             <a href="{{ route('dashboard-admin') }}"
@@ -54,6 +56,18 @@
                                 <div class="mt-1 w-6 h-1 bg-blue-600 rounded"></div>
                             @endif
                         </div>
+
+                        <!-- Tambahan: Assign Vendor -->
+                        <div class="flex flex-col items-center">
+                            <a href="{{ route('assign.vendor.index') }}"
+                               class="text-lg font-semibold {{ Route::is('assign.vendor.index') ? 'text-blue-600' : 'text-gray-700 dark:text-white hover:text-blue-600' }} transition-colors duration-200">
+                                Assign Vendor
+                            </a>
+                            @if(Route::is('assign.vendor.index'))
+                                <div class="mt-1 w-6 h-1 bg-blue-600 rounded"></div>
+                            @endif
+                        </div>
+
                     @else
                         <div class="flex flex-col items-center">
                             <a href="{{ route('user.dashboard') }}"
@@ -64,6 +78,7 @@
                                 <div class="mt-1 w-6 h-1 bg-blue-600 rounded"></div>
                             @endif
                         </div>
+
                         <div class="flex flex-col items-center">
                             <a href="{{ route('user.fin.index') }}"
                                class="text-lg font-semibold {{ Route::is('user.fin.index') ? 'text-blue-600' : 'text-gray-700 dark:text-white hover:text-blue-600' }} transition-colors duration-200">

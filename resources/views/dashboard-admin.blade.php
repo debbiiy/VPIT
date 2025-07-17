@@ -109,7 +109,6 @@
         </div>
     </div>
 </div>
-
 <style>
     input[type="checkbox"].approve-checkbox:checked {
         accent-color: #16a34a;
